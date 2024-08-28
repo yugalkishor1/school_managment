@@ -2,7 +2,7 @@
 
 function Student() {
   return (
-    <div>Student</div>
+    <div className="h-[300vh]"></div>
   )
 }
 

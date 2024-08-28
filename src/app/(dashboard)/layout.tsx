@@ -1,3 +1,7 @@
+import Link from "next/link";
+import Image from "next/image";
+import Sidebar from "@/components/Sidebar"
+import Navbar from "@/components/Navbar";
 
 export default function RootLayout({
     children,
@@ -5,9 +9,27 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return ( 
-        <div className=" bg-gradient-to-t from-black to-blue-500 h-screen flex "> 
-            <div className="w-1/6 bg-green-600">left</div>
-            <div className="w-5/6 bg-red-700">right</div>
-        </div>       
+        <div className="  h-screen flex"> 
+            <div className="w-[10%]  md:w-[15%] flex  flex-col items-center gap-x-4 m-4 gap-y-8 ">
+                <div>
+                    <Link href={"/"} className="flex gap-2  justify-center items-center border h-full w-full">
+                        <Image 
+                            src={"/school-image.jpg"}
+                            height={32}
+                            width={32}
+                            alt="shcoolimage"
+                            className="rounded-full h-8 v-8"
+                        />                      
+                        <p className="text-2xl hidden md:block">logo</p>
+                    </Link>
+                </div>
+                <Sidebar/>
+            </div>
+            <div className="w-[90%] md:w-[85%]  overflow-scroll ">
+                <Navbar/>
+                {children}
+            </div>
+        </div>      
+        
     );
 }
